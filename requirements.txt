@@ -1,1 +1,10 @@
+# pynics runtime dependencies (needed when Streamlit Cloud uses uv + this file
+# instead of Poetry + pyproject.toml)
+numpy
+scipy
+ase
+soprano>=0.8.10
 plotly
+streamlit>=1.35
+# install pynics itself from the repo root so `from pynics import ...` works
+.
