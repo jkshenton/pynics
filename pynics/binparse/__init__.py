@@ -4,3 +4,4 @@ from __future__ import absolute_import
 from pynics.binparse.forbinfile import ForBinFile, RecordError
 from pynics.binparse.castepfile import CastepBinFile, CastepBinError
 from pynics.binparse.currentfile import CurrentFile, CurrentError
+from pynics.binparse.vasp_current import VaspCurrentFile, VaspCurrentError
