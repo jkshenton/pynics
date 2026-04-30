@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pynics"
+version = "0.1.1"
+description = "Computing Nuclear Independent Chemical Shifts from CASTEP and VASP data"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Simone Sturniolo", email = "simone.sturniolo@stfc.ac.uk" },
+]
+keywords = ["crystallography", "ccpnc", "computational chemistry", "nmr", "nics"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Physics",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "numpy",
+    "ase",
+    "soprano>=0.8.10",
+    "scipy",
+]
+
+[project.optional-dependencies]
+docs = [
+    "sphinx>=7",
+    "sphinx-rtd-theme",
+    "sphinx-autodoc-typehints",
+]
+dev = [
+    "pytest>=8",
+    "pytest-cov",
+    "ruff",
+]
+notebook = [
+    "marimo>=0.7",
+    "plotly",
+]
+streamlit = [
+    "streamlit>=1.35",
+    "plotly",
+]
+
+[project.scripts]
+lorentz_buildup_nics = "pynics.__main__:nics_buildup"
+nicsanalyse = "pynics.nicsanalyse:nics_analyse"
+splitcell = "pynics.splitcell:split_cell"
+
+[project.urls]
+Homepage = "https://www.ccpnc.ac.uk/software/"
+Repository = "https://github.com/CCP-NC/pynics"
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v"
