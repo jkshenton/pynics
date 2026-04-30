@@ -20,7 +20,7 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
 ]
-requires-python = ">=3.8"
+requires-python = ">=3.8,!=3.9.7"
 dependencies = [
     "numpy",
     "ase",
@@ -44,7 +44,8 @@ notebook = [
     "plotly",
 ]
 streamlit = [
-    "streamlit>=1.35",
+    "streamlit>=1.35,<1.51; python_version < '3.10'",
+    "streamlit>=1.51; python_version >= '3.10'",
     "plotly",
 ]
 
